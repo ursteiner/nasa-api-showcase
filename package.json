@@ -5,6 +5,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
+    "test": "vitest",
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "build-only": "vite build",
@@ -14,16 +15,18 @@
   "dependencies": {
     "@fontsource/roboto": "5.2.5",
     "@mdi/font": "7.4.47",
-    "vue": "^3.5.13",
+    "test-utils": "^1.1.1",
     "vuetify": "^3.8.1"
   },
   "devDependencies": {
     "@tsconfig/node22": "^22.0.0",
     "@types/node": "^22.9.0",
-    "@vitejs/plugin-vue": "^5.2.3",
+    "@vitejs/plugin-vue": "^5.2.4",
+    "@vue/test-utils": "^2.4.6",
     "@vue/tsconfig": "^0.7.0",
     "eslint": "^9.23.0",
     "eslint-config-vuetify": "^4.0.0",
+    "jsdom": "^26.1.0",
     "npm-run-all2": "^7.0.2",
     "pinia": "^3.0.1",
     "sass-embedded": "^1.86.3",
@@ -35,6 +38,8 @@
     "vite": "^6.2.2",
     "vite-plugin-vue-layouts-next": "^0.0.8",
     "vite-plugin-vuetify": "^2.1.1",
+    "vitest": "^3.2.4",
+    "vue": "^3.5.17",
     "vue-router": "^4.5.0",
     "vue-tsc": "^2.2.8"
   }

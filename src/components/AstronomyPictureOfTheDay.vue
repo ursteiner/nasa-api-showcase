@@ -1,10 +1,6 @@
 <script lang="ts" setup>
-  import { useAppStore } from '@/stores/app'
-
-  const store = useAppStore()
-
-  store.getAstronomyPictureOfTheDay()
-  const astronomy = ref(store.astronomyPictureOfTheDay)
+  const props = defineProps(['apod'])
+  console.log(props)
 </script>
 
 <template>
@@ -16,17 +12,17 @@
     <v-img
       cover
       max-height="500"
-      :src="astronomy.url"
+      :src="apod.url"
     />
 
     <v-card-title>
-      {{ astronomy.date }}
+      {{ apod.date }}
     </v-card-title>
 
     <v-spacer />
 
     <v-card-text>
-      {{ astronomy.explanation }}
+      {{ apod.explanation }}
     </v-card-text>
 
   </v-card>
