@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { expect, test } from 'vitest'
 import AstronomyPictureOfTheDay from '../src/components/AstronomyPictureOfTheDay.vue'
-import { vuetify } from '../src/plugins/vuetify'
+import vuetify from '../src/plugins/vuetify'
 
 test('mount component', async () => {
   expect(AstronomyPictureOfTheDay).toBeTruthy()
