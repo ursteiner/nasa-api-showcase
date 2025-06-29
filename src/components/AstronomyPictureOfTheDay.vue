@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  const props = defineProps(['apod'])
+  const props = defineProps(['apod', 'loading'])
   console.log(props)
 </script>
 
@@ -20,7 +20,9 @@
     </v-card-title>
 
     <v-spacer />
-
+    <div class="alignCenter">
+      <v-progress-circular v-if="loading" indeterminate />
+    </div>
     <v-card-text>
       {{ apod.explanation }}
     </v-card-text>
@@ -29,5 +31,6 @@
 </template>
 
 <style lang="sass" scoped>
-
+  .alignCenter
+    text-align: center
 </style>

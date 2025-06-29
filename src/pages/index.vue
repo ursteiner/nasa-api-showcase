@@ -1,14 +1,11 @@
 <template>
-  <AstronomyPictureOfTheDay :apod="astronomyOfTheDay" />
+  <AstronomyPictureOfTheDay :apod="astronomyOfTheDay" :loading="isLoading" />
 </template>
 
 <script lang="ts" setup>
-  import AstronomyPictureOfTheDay from '@/components/AstronomyPictureOfTheDay.vue'
-
   import { useAppStore } from '@/stores/app'
-
   const store = useAppStore()
+  store.initialize()
 
-  store.getAstronomyPictureOfTheDay()
-  const astronomyOfTheDay = ref(store.astronomyPictureOfTheDay)
+  const { isLoading, astronomyOfTheDay } = storeToRefs(store)
 </script>
