@@ -1,5 +1,7 @@
 <template>
-  <AstronomyPictureOfTheDay :apod="astronomyOfTheDay" :loading="isLoading" />
+  <Suspense>
+    <AstronomyPictureOfTheDay :apod="astronomyOfTheDay" :loading="isLoading" />
+  </Suspense>
 </template>
 
 <script lang="ts" setup>
