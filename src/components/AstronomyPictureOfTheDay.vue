@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-  const props = defineProps(['apod', 'loading'])
-  console.log(props)
+  const props = defineProps(['apod', 'loading', 'error'])
+  console.log(props['apod'].title)
 </script>
 
 <template>
@@ -15,8 +15,11 @@
       :src="apod.url"
     />
 
-    <v-card-title>
-      {{ apod.date }}
+    <v-card-title v-if="error == ''">
+      {{ apod.date }}  {{ apod.title }} ({{ apod.copyright }})
+    </v-card-title>
+    <v-card-title v-if="error != ''">
+      {{ error }}
     </v-card-title>
 
     <v-spacer />

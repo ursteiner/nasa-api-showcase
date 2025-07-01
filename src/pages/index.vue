@@ -1,6 +1,6 @@
 <template>
   <Suspense>
-    <AstronomyPictureOfTheDay :apod="astronomyOfTheDay" :loading="isLoading" />
+    <AstronomyPictureOfTheDay :apod="astronomyOfTheDay" :error="errorMessage" :loading="isLoading" />
   </Suspense>
 </template>
 
@@ -9,5 +9,5 @@
   const store = useAppStore()
   store.initialize()
 
-  const { isLoading, astronomyOfTheDay } = storeToRefs(store)
+  const { isLoading, astronomyOfTheDay, errorMessage } = storeToRefs(store)
 </script>
