@@ -16,6 +16,7 @@ test('mount component', async () => {
         date: '2025-06-29',
         explanation: 'Test explanation',
       },
+      error: '',
     },
   })
   expect(wrapper.text()).toContain('Test explanation')
