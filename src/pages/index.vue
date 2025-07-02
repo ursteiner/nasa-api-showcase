@@ -2,36 +2,32 @@
   <Suspense>
     <AstronomyPictureOfTheDay :apod="astronomyOfTheDay" :error="errorMessage" :loading="isLoading" />
   </Suspense>
-  <div class="navigationBar">
-    <v-btn class="navigationButton" @click="getPreviousAstronomyPictureOfTheDay()">&larr; previous</v-btn>&nbsp;<v-btn class="navigationButton" @click="getNextAstronomyPictureOfTheDay()">next &rarr;</v-btn>
-  </div>
+  <NavigationBar @next="getNext" @previous="getPrevious" />
 </template>
 
 <script lang="ts" setup>
+  import NavigationBar from '@/components/NavigationBar.vue'
   import { useAppStore } from '@/stores/app'
   const store = useAppStore()
+  // init
   store.getAstronomyPictureOfTheDay()
 
-  const { isLoading, astronomyOfTheDay, errorMessage } = storeToRefs(store)
-
-  function getPreviousAstronomyPictureOfTheDay () {
+  const getPrevious = () => {
+    console.log('get previous image')
     store.setPreviousDate()
     store.getAstronomyPictureOfTheDay()
   }
 
-  function getNextAstronomyPictureOfTheDay () {
+  const getNext = () => {
+    console.log('get next image')
     store.setNextDate()
     store.getAstronomyPictureOfTheDay()
   }
 
+  const { isLoading, astronomyOfTheDay, errorMessage } = storeToRefs(store)
+
 </script>
 
 <style lang="sass" scoped>
-.navigationBar
-  display: flex
-  justify-content: center
-  align-items: center
-  height: 80px
-.navigationButton
-  width: 120px
+
 </style>
