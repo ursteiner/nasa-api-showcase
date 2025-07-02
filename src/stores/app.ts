@@ -1,10 +1,25 @@
 import { defineStore } from 'pinia'
 
+function formatDate (date: Date) {
+  return date.toISOString().slice(0, 10)
+}
+
+function mapApiResponse (apod: any, data: any) {
+  apod.url = data.url
+  apod.date = data.date
+  apod.explanation = data.explanation
+  apod.title = data.title
+  if (data.hasOwnProperty('copyright')) {
+    apod.copyright = data.copyright.replaceAll('\n', '')
+  }
+}
+
 export const useAppStore = defineStore('app', {
   state: () => ({
     astronomyPictureOfTheDay: { url: '', date: '', explanation: '', title: '', copyright: '' },
     loading: true,
     error: '',
+    date: new Date(),
   }),
   getters: {
     isLoading: state => state.loading,
@@ -12,21 +27,32 @@ export const useAppStore = defineStore('app', {
     errorMessage: state => state.error,
   },
   actions: {
-    async initialize () {
-      const nasaUrl = 'https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY'
+    async getAstronomyPictureOfTheDay () {
+      this.loading = true
+      this.error = ''
+      const nasaUrl = 'https://api.nasa.gov/planetary/apod?date=' + formatDate(this.date) + '&api_key=DEMO_KEY'
       try {
         const response = await fetch(nasaUrl)
-        const data = await response.json()
-        this.astronomyPictureOfTheDay.url = data.url
-        this.astronomyPictureOfTheDay.date = data.date
-        this.astronomyPictureOfTheDay.explanation = data.explanation
-        this.astronomyPictureOfTheDay.title = data.title
-        this.astronomyPictureOfTheDay.copyright = data.copyright.replaceAll('\n', '')
+        if (response.status == 429) {
+          this.error = 'API limit exceeded'
+          console.log(this.error)
+        } else {
+          const data = await response.json()
+          mapApiResponse(this.astronomyPictureOfTheDay, data)
+        }
       } catch (error) {
-        console.log('Error initializing store ' + error)
-        this.error = 'Could not get Astronomy Picture Of The Day'
+        console.error('Error requesting API ' + error)
+        this.error = 'Could not get Astronomy Picture of the Day'
       }
       this.loading = false
+    },
+    setPreviousDate () {
+      this.date.setDate(this.date.getDate() - 1)
+    },
+    setNextDate () {
+      if (formatDate(this.date) < formatDate(new Date())) {
+        this.date.setDate(this.date.getDate() + 1)
+      }
     },
   },
 })
