@@ -1,10 +1,10 @@
 import { defineStore } from 'pinia'
 
-function formatDate (date: Date) {
+const formatDate = (date: Date) => {
   return date.toISOString().slice(0, 10)
 }
 
-function mapApiResponse (apod: any, data: any) {
+const mapApiResponse = (apod: any, data: any) => {
   apod.url = data.url
   apod.date = data.date
   apod.explanation = data.explanation
