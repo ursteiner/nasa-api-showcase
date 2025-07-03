@@ -23,8 +23,8 @@
     </v-card-title>
 
     <v-spacer />
-    <div class="alignCenter">
-      <v-progress-circular v-if="loading" indeterminate />
+    <div class="loadingIndicator">
+      <v-progress-circular v-show="loading" indeterminate />
     </div>
     <v-card-text>
       {{ apod.explanation }}
@@ -34,6 +34,7 @@
 </template>
 
 <style lang="sass" scoped>
-  .alignCenter
+  .loadingIndicator
     text-align: center
+    height: 30px
 </style>
