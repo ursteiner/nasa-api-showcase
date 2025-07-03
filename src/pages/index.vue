@@ -1,8 +1,12 @@
 <template>
-  <Suspense>
-    <AstronomyPictureOfTheDay :apod="astronomyOfTheDay" :error="errorMessage" :loading="isLoading" />
-  </Suspense>
-  <NavigationBar @next="getNext" @previous="getPrevious" />
+  <div class="mainPage">
+    <Suspense>
+      <AstronomyPictureOfTheDay :apod="astronomyOfTheDay" :error="errorMessage" :loading="isLoading" />
+    </Suspense>
+    <NavigationBar @next="getNext" @previous="getPrevious">
+      {{ astronomyOfTheDay.date }}
+    </NavigationBar>
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -29,5 +33,6 @@
 </script>
 
 <style lang="sass" scoped>
-
+  .mainPage
+    margin: 20px
 </style>

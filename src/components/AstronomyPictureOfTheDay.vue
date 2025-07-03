@@ -15,16 +15,15 @@
   <v-card
     class="mx-auto"
     max-height="1000"
-    max-width="1200"
   >
     <v-img
-      cover
+      contain
       max-height="500"
       :src="apod.url"
     />
 
     <v-card-title>
-      {{ apod.date }}  {{ apod.title }} ({{ apod.copyright }})
+      {{ apod.title }} ({{ apod.copyright }})
     </v-card-title>
     <v-spacer />
     <div class="loadingIndicator">

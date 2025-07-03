@@ -17,10 +17,11 @@ test('mount component', async () => {
         url: 'https://www.test.com',
         date: '2025-06-29',
         explanation: 'Test explanation',
+        copyright: 'copyright',
       },
       error: '',
     },
   })
   expect(wrapper.text()).toContain('Test explanation')
-  expect(wrapper.text()).toContain('2025-06-29')
+  expect(wrapper.text()).toContain('copyright')
 })

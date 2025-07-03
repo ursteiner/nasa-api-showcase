@@ -7,7 +7,7 @@
     <v-btn class="navigationButton" @click="emit('previous')">
       &larr; previous
     </v-btn>
-    &nbsp;
+    <slot />
     <v-btn class="navigationButton" @click="emit('next')">
       next &rarr;
     </v-btn>
@@ -17,7 +17,7 @@
 <style scoped lang="sass">
   .navigationBar
     display: flex
-    justify-content: center
+    justify-content: space-between
     align-items: center
     height: 80px
   .navigationButton
