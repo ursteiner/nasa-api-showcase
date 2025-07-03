@@ -30,7 +30,7 @@ export const useAppStore = defineStore('app', {
     async getAstronomyPictureOfTheDay () {
       this.loading = true
       this.error = ''
-      const nasaUrl = 'https://api.nasa.gov/planetary/apod?date=' + formatDate(this.date) + '&api_key=DEMO_KEY'
+      const nasaUrl = 'https://api.nasa.gov/planetary/apod?date=' + formatDate(this.date) + '&api_key=' + (import.meta.env.VITE_APP_NASA_API_KEY ?? 'DEMO_KEY')
       try {
         const response = await fetch(nasaUrl)
         if (response.status == 429) {

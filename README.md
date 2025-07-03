@@ -7,3 +7,10 @@ Simple showcase using pinia, vuetify to show the Astronomy Picture Of The Day fr
 
 
 <img alt="ScreenshotAstronomyPictureOfTheDay" src="screenshots/screenshot.png">
+
+
+If you want to add your own API key instead of using the limited DEMO_KEY, you can create a .env.local file in the root folder and add
+
+```
+VITE_APP_NASA_API_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
