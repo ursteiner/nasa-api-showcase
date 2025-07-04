@@ -3,7 +3,7 @@
     <Suspense>
       <AstronomyPictureOfTheDay :apod="astronomyOfTheDay" :error="errorMessage" :loading="isLoading" />
     </Suspense>
-    <NavigationBar @next="getNext" @previous="getPrevious">
+    <NavigationBar :loading="isLoading" @next="getNext" @previous="getPrevious">
       {{ astronomyOfTheDay.date }}
     </NavigationBar>
   </div>

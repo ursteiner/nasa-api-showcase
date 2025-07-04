@@ -1,14 +1,15 @@
 <script setup lang="ts">
   const emit = defineEmits(['previous', 'next'])
+  defineProps(['loading'])
 </script>
 
 <template>
   <div class="navigationBar">
-    <v-btn class="navigationButton" @click="emit('previous')">
+    <v-btn class="navigationButton" :disabled="loading" @click="emit('previous')">
       &larr; previous
     </v-btn>
     <slot />
-    <v-btn class="navigationButton" @click="emit('next')">
+    <v-btn class="navigationButton" :disabled="loading" @click="emit('next')">
       next &rarr;
     </v-btn>
   </div>

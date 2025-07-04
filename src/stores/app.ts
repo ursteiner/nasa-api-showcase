@@ -35,7 +35,6 @@ export const useAppStore = defineStore('app', {
         const response = await fetch(nasaUrl)
         if (response.status == 429) {
           this.error = 'API limit exceeded'
-          console.log(this.error)
         } else {
           const data = await response.json()
           mapApiResponse(this.astronomyPictureOfTheDay, data)
