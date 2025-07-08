@@ -31,7 +31,7 @@
     store.getAstronomyPictureOfTheDay()
   }
 
-  const setDate = (date) => {
+  const setDate = (date: Date) => {
     console.log('set date ' + date)
     if(formatDate(date) != formatDate(store.getDate)){
       date.setHours(15)
