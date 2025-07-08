@@ -31,11 +31,13 @@
     store.getAstronomyPictureOfTheDay()
   }
 
-  const setDate = (date: Date) => {
-    console.log('set date ' + date)
-    if(formatDate(date) != formatDate(store.getDate)){
-      date.setHours(15)
-      store.setDate(date)
+  const setDate = (date: String) => {
+    const newDate = new Date(Date.parse(date))
+    console.log('set date: ' + newDate)
+
+    if(formatDate(newDate) != formatDate(store.getDate)){
+      newDate.setHours(15)
+      store.setDate(newDate)
       store.getAstronomyPictureOfTheDay()
     }
   }
