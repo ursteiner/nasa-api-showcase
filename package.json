@@ -15,7 +15,7 @@
   "dependencies": {
     "@fontsource/roboto": "5.2.5",
     "@mdi/font": "7.4.47",
-    "test-utils": "^1.1.1",
+    "test-utils": "^1.0.21",
     "vuetify": "^3.8.1"
   },
   "devDependencies": {

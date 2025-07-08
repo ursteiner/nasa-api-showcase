@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 
-const formatDate = (date: Date) => {
+export const formatDate = (date: Date) => {
   return date.toISOString().slice(0, 10)
 }
 
@@ -25,9 +25,11 @@ export const useAppStore = defineStore('app', {
     isLoading: state => state.loading,
     astronomyOfTheDay: state => state.astronomyPictureOfTheDay,
     errorMessage: state => state.error,
+    getDate: state => state.date,
   },
   actions: {
     async getAstronomyPictureOfTheDay () {
+      console.log('Request API')
       this.loading = true
       this.error = ''
       const nasaUrl = 'https://api.nasa.gov/planetary/apod?date=' + formatDate(this.date) + '&api_key=' + (import.meta.env.VITE_APP_NASA_API_KEY ?? 'DEMO_KEY')
@@ -53,5 +55,10 @@ export const useAppStore = defineStore('app', {
         this.date.setDate(this.date.getDate() + 1)
       }
     },
+    setDate (date) {
+      if (formatDate(date) < formatDate(new Date())) {
+        this.date = date
+      }
+    }
   },
 })

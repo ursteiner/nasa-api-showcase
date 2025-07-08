@@ -20,7 +20,7 @@
     display: flex
     justify-content: space-between
     align-items: center
-    height: 80px
+    height: 100px
   .navigationButton
     width: 120px
 </style>

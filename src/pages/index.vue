@@ -4,17 +4,20 @@
       <AstronomyPictureOfTheDay :apod="astronomyOfTheDay" :error="errorMessage" :loading="isLoading" />
     </Suspense>
     <NavigationBar :loading="isLoading" @next="getNext" @previous="getPrevious">
-      {{ astronomyOfTheDay.date }}
+      <v-date-input class="datePickerCentered" @update:modelValue="setDate($event)" variant="outlined" max-width="300" prepend-icon="" v-model="astronomyOfTheDay.date" />
     </NavigationBar>
   </div>
 </template>
 
 <script lang="ts" setup>
   import NavigationBar from '@/components/NavigationBar.vue'
-  import { useAppStore } from '@/stores/app'
+  import { useAppStore, formatDate } from '@/stores/app'
+  import { VDateInput } from 'vuetify/labs/VDateInput'
   const store = useAppStore()
   // init
   store.getAstronomyPictureOfTheDay()
+
+  const { isLoading, astronomyOfTheDay, errorMessage } = storeToRefs(store)
 
   const getPrevious = () => {
     console.log('get previous image')
@@ -28,11 +31,20 @@
     store.getAstronomyPictureOfTheDay()
   }
 
-  const { isLoading, astronomyOfTheDay, errorMessage } = storeToRefs(store)
+  const setDate = (date) => {
+    console.log('set date ' + date)
+    if(formatDate(date) != formatDate(store.getDate)){
+      date.setHours(15)
+      store.setDate(date)
+      store.getAstronomyPictureOfTheDay()
+    }
+  }
 
 </script>
 
 <style lang="sass" scoped>
   .mainPage
     margin: 20px
+  .datePickerCentered
+    padding-top:27px;
 </style>
