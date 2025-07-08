@@ -31,7 +31,7 @@
     store.getAstronomyPictureOfTheDay()
   }
 
-  const setDate = (date: String) => {
+  const setDate = (date: string) => {
     const newDate = new Date(Date.parse(date))
     console.log('set date: ' + newDate)
 
