@@ -55,7 +55,7 @@ export const useAppStore = defineStore('app', {
         this.date.setDate(this.date.getDate() + 1)
       }
     },
-    setDate (date) {
+    setDate (date: Date) {
       if (formatDate(date) < formatDate(new Date())) {
         this.date = date
       }
