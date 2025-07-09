@@ -34,9 +34,9 @@
   const setDate = (date: string) => {
     const newDate = new Date(Date.parse(date))
     console.log('set date: ' + newDate)
+    newDate.setHours(15)
 
     if(formatDate(newDate) != formatDate(store.getDate)){
-      newDate.setHours(15)
       store.setDate(newDate)
       store.getAstronomyPictureOfTheDay()
     }
