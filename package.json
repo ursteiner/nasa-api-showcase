@@ -15,7 +15,6 @@
   "dependencies": {
     "@fontsource/roboto": "5.2.5",
     "@mdi/font": "7.4.47",
-    "test-utils": "^1.0.21",
     "vuetify": "^3.8.1"
   },
   "devDependencies": {
@@ -25,7 +24,7 @@
     "@vue/test-utils": "^2.4.6",
     "@vue/tsconfig": "^0.7.0",
     "eslint": "^9.23.0",
-    "eslint-config-vuetify": "^4.0.0",
+    "eslint-config-vuetify": "^3.0.3",
     "jsdom": "^26.1.0",
     "npm-run-all2": "^7.0.2",
     "pinia": "^3.0.1",
