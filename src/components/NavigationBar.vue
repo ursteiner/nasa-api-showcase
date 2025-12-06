@@ -5,11 +5,11 @@
 
 <template>
   <div class="navigationBar">
-    <v-btn class="navigationButton" :disabled="loading" @click="emit('previous')">
+    <v-btn data-testid="previousButton" class="navigationButton" :disabled="loading" @click="emit('previous')">
       &larr; previous
     </v-btn>
     <slot />
-    <v-btn class="navigationButton" :disabled="loading" @click="emit('next')">
+    <v-btn data-testid="nextButton" class="navigationButton" :disabled="loading" @click="emit('next')">
       next &rarr;
     </v-btn>
   </div>
