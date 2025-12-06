@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import { describe, expect, test, it } from 'vitest'
+import { describe, expect, test, it, expect } from 'vitest'
 import AstronomyPictureOfTheDay from './AstronomyPictureOfTheDay.vue'
 import ResizeObserver from './../mocks/ResizeObserver'
 import vuetify from './../plugins/vuetify'
