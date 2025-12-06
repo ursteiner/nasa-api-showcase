@@ -1,8 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { expect, test } from 'vitest'
-import NavigationBar from '../src/components/NavigationBar.vue'
-import ResizeObserver from '../src/mocks/ResizeObserver'
-import vuetify from '../src/plugins/vuetify'
+import NavigationBar from './NavigationBar.vue'
+import vuetify from './../plugins/vuetify'
 
 describe('NavigationBar', () => {
   it('Emits "previous" when previous button is clicked', async () => {

@@ -1,8 +1,8 @@
 import { mount } from '@vue/test-utils'
 import { expect, test } from 'vitest'
-import AstronomyPictureOfTheDay from '../src/components/AstronomyPictureOfTheDay.vue'
-import ResizeObserver from '../src/mocks/ResizeObserver'
-import vuetify from '../src/plugins/vuetify'
+import AstronomyPictureOfTheDay from './AstronomyPictureOfTheDay.vue'
+import ResizeObserver from './../mocks/ResizeObserver'
+import vuetify from './../plugins/vuetify'
 
 test('mount component', async () => {
   window.ResizeObserver = ResizeObserver
