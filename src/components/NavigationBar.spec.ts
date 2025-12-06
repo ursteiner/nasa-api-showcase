@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import { describe, expect, test } from 'vitest'
+import { describe, expect, test, it } from 'vitest'
 import NavigationBar from './NavigationBar.vue'
 import vuetify from './../plugins/vuetify'
 
