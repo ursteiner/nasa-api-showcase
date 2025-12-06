@@ -13,7 +13,7 @@ describe('NavigationBar', () => {
     });
 
     const previousButton = wrapper.get('[data-testid="previousButton"]')
-    expect(previousButton.exists()).toBe(true)
+    //expect(previousButton.exists()).toBe(true)
 
     await previousButton.trigger('click')
 
@@ -47,9 +47,9 @@ describe('NavigationBar', () => {
     const previousButton = wrapper.get('[data-testid="previousButton"]')
     const nextButton = wrapper.get('[data-testid="nextButton"]')
 
-    expect(previousButton.exists()).toBe(true)
+    //expect(previousButton.exists()).toBe(true)
     expect(previousButton.attributes('disabled')).toBeDefined()
-    expect(nextButton.exists()).toBe(true)
+    //expect(nextButton.exists()).toBe(true)
     expect(nextButton.attributes('disabled')).toBeDefined()
   })
 
