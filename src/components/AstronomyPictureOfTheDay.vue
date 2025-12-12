@@ -16,15 +16,25 @@
     class="mx-auto"
     max-height="1000"
   >
+    <v-card-title>
+      {{ apod.title }} ({{ apod.copyright }})
+    </v-card-title>
+
     <v-img
       contain
       max-height="500"
       :src="apod.url"
-    />
+    >
+      <template v-slot:placeholder>
+        <div class="d-flex align-center justify-center fill-height">
+          <v-progress-circular
+            color="grey-lighten-4"
+            indeterminate
+          ></v-progress-circular>
+        </div>
+      </template>
+    </v-img>
 
-    <v-card-title>
-      {{ apod.title }} ({{ apod.copyright }})
-    </v-card-title>
     <v-spacer />
     <div class="loadingIndicator">
       <v-progress-circular v-show="loading" indeterminate />

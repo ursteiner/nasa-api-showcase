@@ -4,7 +4,7 @@
       <AstronomyPictureOfTheDay :apod="astronomyOfTheDay" :error="errorMessage" :loading="isLoading" />
     </Suspense>
     <NavigationBar :loading="isLoading" @next="getNext" @previous="getPrevious">
-      <v-date-input class="datePickerCentered" @update:modelValue="setDate($event)" variant="outlined" max-width="300" prepend-icon="" v-model="astronomyOfTheDay.date" />
+      <v-date-input class="datePickerCentered" input-format="yyyy-MM-dd" @update:modelValue="setDate($event)" variant="outlined" max-width="300" prepend-icon="" v-model="astronomyOfTheDay.date" />
     </NavigationBar>
   </div>
 </template>
