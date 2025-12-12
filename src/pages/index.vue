@@ -48,5 +48,7 @@
   .mainPage
     margin: 20px
   .datePickerCentered
-    padding-top:27px;
+    padding-top: 27px;
+  .datePickerCentered :deep(input)
+    text-align: center;
 </style>
