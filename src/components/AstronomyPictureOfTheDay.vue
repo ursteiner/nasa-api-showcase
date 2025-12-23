@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-
 import type {AstronomyPictureOfTheDay} from "@/types/AstronomyPictureOfTheDay.ts";
 
 const props = defineProps<{
