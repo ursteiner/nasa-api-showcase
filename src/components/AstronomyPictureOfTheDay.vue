@@ -1,6 +1,14 @@
 <script lang="ts" setup>
-  const props = defineProps(['apod', 'loading', 'error'])
-  console.log(props['apod'].title)
+
+import type {AstronomyPictureOfTheDay} from "@/types/AstronomyPictureOfTheDay.ts";
+
+const props = defineProps<{
+  apod: AstronomyPictureOfTheDay
+  loading: boolean
+  error: string
+}>()
+
+console.log(props.apod.title)
 </script>
 
 <template>

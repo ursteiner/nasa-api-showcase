@@ -1,10 +1,11 @@
 import { defineStore } from 'pinia'
+import type {AstronomyPictureOfTheDay} from "@/types/AstronomyPictureOfTheDay.ts";
 
 export const formatDate = (date: Date) => {
   return date.toISOString().slice(0, 10)
 }
 
-const mapApiResponse = (apod: any, data: any) => {
+const mapApiResponse = (apod: AstronomyPictureOfTheDay, data: any) => {
   apod.url = data.url
   apod.date = data.date
   apod.explanation = data.explanation
@@ -16,7 +17,13 @@ const mapApiResponse = (apod: any, data: any) => {
 
 export const useAppStore = defineStore('app', {
   state: () => ({
-    astronomyPictureOfTheDay: { url: '', date: '', explanation: '', title: '', copyright: '' },
+    astronomyPictureOfTheDay: {
+      url: '',
+      date: '',
+      explanation: '',
+      title: '',
+      copyright: ''
+    } as AstronomyPictureOfTheDay,
     loading: true,
     error: '',
     date: new Date(),
